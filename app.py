@@ -46,6 +46,10 @@ def proses1():
         mode = 'niblack'
     elif 'sauvola' in request.form.get('select_thresholding'):
         mode = 'sauvola'
+    elif 'gaus' in request.form.get('select_thresholding'):
+        mode = 'gaus'
+    elif 'hsv' in request.form.get('select_thresholding'):
+        mode = 'hsv'
         
     #process
     if mode == 'otsu':
@@ -58,6 +62,12 @@ def proses1():
         cv2.imwrite("/".join([target, 'result.jpg']),img_res)
     elif mode == 'sauvola':
         img_res = process.sauvola_thresh(img)
+        cv2.imwrite("/".join([target, 'result.jpg']),img_res)
+    elif mode == 'gaus':
+        img_res = process.gaus_blur(img)
+        cv2.imwrite("/".join([target, 'result.jpg']),img_res)
+     elif mode == 'hsv':
+        img_res = process.hsv(img)
         cv2.imwrite("/".join([target, 'result.jpg']),img_res)
 
     # forward to processing page
