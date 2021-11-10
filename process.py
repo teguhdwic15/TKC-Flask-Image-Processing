@@ -39,13 +39,4 @@ def sauvola_thresh(img):
                 res[i][j]=0
     return res
 
-def gaus_blur(img):
-    img = cv2.imread(img)
-    blurred = cv2.GaussianBlur(image, (9, 9), 0)
-    return blurred 
 
-def hsv(img):
-    img = cv2.imread(img)
-    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    return hsv
-    
